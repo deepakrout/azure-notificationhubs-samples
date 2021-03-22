@@ -9,7 +9,8 @@ import { Plugins, PushNotification, PushNotificationToken, PushNotificationActio
 // Interface(s)
 import { Registration, Notification, EventType } from '../interfaces/events';
 // Azure Notification Hubs configuration (in an external file)
-import { config } from '../../app/config';
+//import { config } from '../../app/config';
+import {config} from '../config';
 
 // Create a local object that will represent our Cordova plugin
 declare let PushNotification;
@@ -31,6 +32,8 @@ export class AzureNotificationHubsService {
     private platform: Platform
   ) {
     // Wait until the container's initialized before doing anything here
+    console.log(`hub config`,config);
+    alert(`hub config`+JSON.stringify(config));
     this.platform.ready().then(() => {
       console.log('AzureNotificationHubsService: Platform ready');
 
